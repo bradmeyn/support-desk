@@ -27,9 +27,14 @@ export const register = createAsyncThunk(
   }
 );
 
-//Login async function
+// Login user
 export const login = createAsyncThunk('auth/login', async (user, thunkAPI) => {
-  console.log(user);
+  try {
+    // returns user using the authService login function
+    return await authService.login(user);
+  } catch (error) {
+    return thunkAPI.rejectWithValue(extractErrorMessage(error));
+  }
 });
 
 // Logout user
