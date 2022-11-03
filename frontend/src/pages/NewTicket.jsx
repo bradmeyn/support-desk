@@ -7,6 +7,8 @@ const NewTicket = () => {
   const [product, setProduct] = useState('');
   const [description, setDescription] = useState('');
 
+  const onSubmit = (e) => {};
+
   return (
     <>
       <section className='heading'>
@@ -33,6 +35,39 @@ const NewTicket = () => {
             disabled
           />
         </div>
+        <form onSubmit={onSubmit}>
+          <div className='form-group'>
+            {' '}
+            <label htmlFor='product'>Product</label>
+            <select
+              name='product'
+              value={product}
+              onChange={(e) => setProduct(e.target.value)}
+              id='product'
+            ></select>
+            <option value='iPhone'>iPhone</option>
+            <option value='iPad'>iPad</option>
+            <option value='iMac'>iMac</option>
+            <option value='Macbook Pro'>Macbook Pro</option>
+          </div>
+
+          <div className='form-group'>
+            <label htmlFor='description'>Description of the issue</label>
+            <textarea
+              name='description'
+              id='description'
+              className='form-control'
+              placeholder='Description'
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            ></textarea>
+          </div>
+          <div className='form-group'>
+            <button className='btn btn-block' type='submit'>
+              Submit
+            </button>
+          </div>
+        </form>
       </section>
     </>
   );
