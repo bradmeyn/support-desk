@@ -40,7 +40,6 @@ function Login() {
       password,
     };
 
-    //fires off the authSlice login function which calls the authService login function
     dispatch(login(userData))
       .unwrap()
       .then((user) => {
